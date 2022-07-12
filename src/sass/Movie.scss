@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@500&family=Festive&family=Lobster+Two:wght@400;700&family=Roboto+Mono&family=Sirin+Stencil&family=Splash&family=Stylish&family=Supermercado+One&family=Titillium+Web&family=Ubuntu:wght@300;500;700&display=swap');
+
+@mixin flexcenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', cursive;
+    overflow-x: hidden;
+    transition: all 0.1s ease-in;
+}
+.themeChange{
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+    z-index: 2;
+    color: white;
+    font-size: 1.5rem;
+}
+.BWChange{
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
+    color: white;
+    font-size: 1.5rem;
+}
+.back{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+.themeChange,.BWChange,.back{
+    transition: all 0.01s ease-in !important;
+    &:hover{
+        color: orange;
+    }
+}
+.Moviebg1{
+    position: absolute;
+    min-height: 100vh;
+    width: 100vw;
+    // filter: grayscale(100%);
+}
+.Moviebg2{
+    position: absolute;
+    min-height: 100vh;
+    width: 100vw;
+    filter: grayscale(0%);
+}
+.Movie1{
+    position: absolute;
+    @include flexcenter;
+    justify-content:flex-start;
+    align-items: flex-end;
+    min-height: 100vh;
+    width: 100vw;
+    // background: rgb(0, 44, 67);
+    color: white;
+    
+    .card{
+        @include flexcenter;
+        flex-direction: column;
+        width: 35rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background: rgba(40, 40, 40, 0.8);
+        margin:2% 5%;
+        
+        .title{
+            width: 100%;
+            @include flexcenter;
+            justify-content: space-between;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+        }
+        .head{
+            border-bottom: 1px solid white;
+            padding: 0.5rem 1rem;
+            padding-bottom: 1rem;
+            h1{
+                font-size: 2rem;
+                font-weight: 900;
+                margin-bottom: 0.5rem;
+            }
+            h3{
+                font-size: 1.2rem;
+                font-weight: 400;
+                margin-bottom: 1.2rem;
+            }
+            p{
+                font-size: 0.8rem;
+                font-weight: 100;
+            }
+        }
+        .genre{
+            width: 100%;
+            padding: 0rem 1rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin: 0.5rem 0;
+            span{
+                margin-right: 0.5rem;
+            }
+        }
+        .body{
+            padding: 0rem 1rem;
+            width: 100%;
+            @include flexcenter;
+            flex-direction: column;
+            div{
+                width: 100%;
+                @include flexcenter;
+                justify-content: space-between;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+    .poster{
+        position: absolute;
+        bottom: 2%;
+        right:5%;
+        width:20rem;
+        height: 30rem;
+        border-radius:0.7rem;
+        box-shadow:4px 4px 10px  black;
+    }
+}
+.Movie2{
+    // overflow-y: hidden;
+    position: absolute;
+    @include flexcenter;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    // background: rgb(0, 44, 67);
+    color: white;
+    // color: white;
+    
+    .bigtext{
+        position: absolute;
+        font-size: 28vw;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1.2px rgba(200, 247, 255, 0.7);
+    }
+    .heading{
+        font-size: 7vw;
+        // margin-left: 1rem;
+        text-align: center;
+        font-weight: 900;
+        background: transparent !important;
+    }
+    .title{
+        position: absolute;
+        top: 2rem;
+        width: 100%;
+        text-align: center;
+    }
+    .quote{
+        font-size: 1.2rem;
+        transform: translateX(10vw);
+        color: orange;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+    .relaseDate{
+        color: orange;
+        transform: translateX(15vw);
+        font-size: 0.8rem;
+        span{
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+    }
+    .company{
+        position: absolute;
+        top: 10%;
+        @include flexcenter;
+        img{
+            width: 7rem;
+            margin-right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding:0.5rem;
+            border-radius: 0.3rem;
+        }
+    }
+    .castToogle{
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+        color: orange;
+        background: white;
+        position: absolute;
+        bottom: 20%;
+        left: 1%;
+        &:hover{
+            color: orange;
+            background:gray;
+        }
+    }
+    
+    .M2page2{
+        position: absolute;
+        top: 100vh;
+        left: 0;
+        // height: 100vh;
+        width: 100vw;
+
+        h2{
+            color: orange;
+            margin: 1rem 0.5rem;
+        }
+
+        .castReel{
+            @extend .crewReel;
+            height:27vh !important;
+            .cast{
+                @extend .crew;
+                height: auto !important;
+                // height: 10rem !important;
+                min-height: 10rem;
+            }
+
+            img{
+                height: 5rem;
+                width: 5rem;
+                border-radius: 1rem;
+            }
+        }
+        .crewReel{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 22vh;
+            overflow-x: scroll;
+            margin-top:2rem;
+
+            .crew{
+                height: 7rem;
+                // width: 7rem;
+                padding: 0.5rem;
+                @include flexcenter;
+                flex-direction: column;
+                justify-content:space-around;
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 0.5rem;
+                margin: 1rem 1rem;
+                h4{
+                    a{
+                        text-decoration: none;
+                        color: orange;
+                    }
+                }
+                p{
+                    color: black;
+                    margin: 0.2rem 0;
+                }
+            }
+        }
+        .graphs{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-bottom: 2rem;
+
+            .graph{
+                width: 17rem;
+                // height: 20rem !important;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 0.5rem;
+            }
+        }
+    }
+}
+@media (max-width: 1000px){
+    .Movie1>.poster{
+        display: none;
+    }
+}
+.loading{
+    @include flexcenter;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(0, 44, 67);
+    .flex2{
+        @include flexcenter;
+        height: 20vh;
+        // justify-content: space-evenly !important;
+        flex-direction: column;
+        color: white;
+        svg{
+            margin-top: 2rem;
+            font-size: 3rem;
+            color:white;
+        }
+    }
+}
+// @media (max-width: 768px){
+//     .themeChange{
+//         display: none;
+//     }
+// }
