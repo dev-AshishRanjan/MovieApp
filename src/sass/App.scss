@@ -333,13 +333,29 @@
 
 @media (max-width: 600px) {
   .App>.card{
-    width: 9rem;
+    width: 10rem;
+    height: 15rem;
+    margin: 0.5rem 0.5rem;
     .data{
+      padding: 1rem;
       font-size:0.7rem;
     }
+    .image{
+      height: 15rem;
+      width: 100%;
+    }
   }
-  .App>.restCard>.sectionType2>.card2{
-    width: 7rem !important;
+  .App .restCard .sectionType2 .card2{
+    height: 10rem !important;
+    width: 17rem!important;
+    .data{
+      background: radial-gradient(circle at bottom left, rgba(0, 0, 0,0.85),transparent);
+      position: absolute;
+      padding:1rem;
+      height: 10rem !important;
+      width: 100%;
+      font-size: 1rem;
+    }
   }
   .App>.Selectedcard{
     flex-direction: column;
