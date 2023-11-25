@@ -4,17 +4,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-behavior: smooth;
 }
 
 
 .light{
-  --bg:rgb(137, 255, 253);
+  --bg2:rgb(212, 255, 254);
+  --bg:rgb(254, 184, 255);
   --black:white;
   --white:black;
   --white2:rgba(0, 0, 0,0.8);
 }
 .dark{
-  --bg:rgb(0, 44, 67);
+  --bg2:rgb(0, 44, 67);
+  --bg:rgb(0, 0, 0);
   --black:black;
   --white:white;
   --white2:rgba(255, 255, 255, 0.9);
@@ -27,14 +30,14 @@
   font-family: 'Supermercado One', cursive;
   overflow-X: hidden;
   transition: all 0.2s ease-in;
-
+  text-decoration: none
 }
 .App{
   @include flexcenter;
   flex-wrap: wrap;
   min-height: 100vh;
   width: 100vw;
-  background: var(--bg);
+  background: radial-gradient(circle at top,var(--bg),var(--bg2));
   // color: white;
 
 
@@ -79,6 +82,7 @@
 
   .restCard{
     @extend .App;
+    background: transparent !important;
 
     .flex2{
       @include flexcenter;
@@ -104,15 +108,31 @@
       overflow-x: scroll !important;
       .card2{
         @extend .card;
-        // height: 10rem;
-        width: 10rem!important;
-        justify-content: space-between !important;
+        min-height: unset !important;
+        height: 15rem !important;
+        width: 25rem!important;
+        position: relative;
+        padding: 0 !important;
         .image{
-          height: auto !important;
+          height: 100% !important;
+          object-fit: cover;
+          object-position: 0 0;
         }
         .data{
-          font-size:0.7rem;
-          color: var(--black);
+          background: radial-gradient(circle at bottom left, rgba(0, 0, 0,0.85),transparent);
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          padding:2rem 1rem;
+          height: 15rem !important;
+          width: 100%;
+          font-size:1.5rem;
+          justify-content: flex-start !important;
+          align-items: flex-end !important;
+          color: white !important;
+        }
+        &:hover .image{
+          object-position: center center;
         }
       }
 
@@ -121,6 +141,7 @@
     }
     .popularSection{
       @extend .App;
+      background: transparent !important;
       min-height: 80vh !important;
       height:80vh;
       overflow-y: scroll !important;
@@ -153,28 +174,38 @@
 
   .card{
     @include flexcenter;
-    flex-direction: column;
     background: var(--white2);
     margin: 1rem 1rem;
-    // padding: 1rem;
     border-radius: 0.5rem;
-    width:15rem;
-    padding-bottom: 0.5rem;
+    height: 25rem;
+    width:17rem;
     cursor: pointer;
+    box-shadow:2px 2px 10px black;
+    position: relative;
+    overflow: hidden;
 
     .image{
-      height: 80%;
+      height: 25rem;
       width: 100%;
     }
     .data{
-      margin: 0.5rem 0.5rem;
-      color: var(--black);
-      text-align: center;
+      @include flexcenter;
+      background: radial-gradient(circle at bottom left, rgba(0, 0, 0,0.85),transparent);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding:2rem 1rem;
+      height: 25rem !important;
+      width: 100%;
+      font-size:1.5rem;
+      justify-content: flex-start !important;
+      align-items: flex-end !important;
+      color: white !important;
     }
   }
   .Selectedcard{
     @include flexcenter;
-    background: var(--white2);
+    background: var(--black);
     position: absolute;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -194,7 +225,7 @@
       justify-content: space-evenly !important;
       flex-direction: column;
       max-width: 50%;
-      color: var(--black);
+      color: var(--white);
 
       .title{
         color: orange;
@@ -255,10 +286,12 @@
     @include flexcenter;
     justify-content:space-between !important;
     padding: 0.5rem 1rem;
-    background: var(--black);
+    backdrop-filter: blur(0.5rem);
+    border-bottom: 1px solid var(--white);
+    box-shadow:1px 1px 10px gray;
 
     p{
-      font-size:4vw;
+      font-size:2.5rem;
       color:var(--white);
       margin-left: 1rem;
       font-family: 'Big Shoulders Stencil Text', cursive;
@@ -326,26 +359,39 @@
 }
 
 @media (min-width: 650px) {
+  ::-webkit-scrollbar{
+    display: none;
+  }
   .App{
     ::-webkit-scrollbar{
       width:1vw;
     }
-    ::-webkit-scrollbar:hover{
-      width:3vw;
-    }
     ::-webkit-scrollbar-thumb{
-      background: linear-gradient(to right, transparent,var(--white));
+      background: var(--white);
       border-radius: 0.2rem;
     }
     ::-webkit-scrollbar-thumb:hover{
-      background: var(--white);
-      border-radius: 0.2rem;
+      background: linear-gradient(to right, orange, var(--white));
+      border-radius: 0.5rem;
     }
     ::-webkit-scrollbar-track{
       background: transparent;
     }
-    ::-webkit-scrollbar-track:hover{
-      background: var(--black);
+  }
+  body{
+    ::-webkit-scrollbar{
+      width:1vw;
+    }
+    ::-webkit-scrollbar-thumb{
+      background: var(--white);
+      border-radius: 0.2rem;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+      background: linear-gradient(to bottom, orange, var(--white));
+      border-radius: 0.5rem;
+    }
+    ::-webkit-scrollbar-track{
+      background: transparent;
     }
   }
 }

@@ -122,7 +122,7 @@ function App(){
   },[upPage]);
   useEffect(() =>{
     if(searchWindow && searchValue !==""){
-      setSearchURL(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=${searchValue}&page=${SearchPage}`);
+      setSearchURL(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=${searchValue.trim()}&page=${SearchPage}`);
     }
   },[SearchPage]);
 
@@ -178,19 +178,19 @@ function App(){
             <div className="appHeader">
               <p>Motion Pic</p>
               <input type="text" id="search" name="search" placeholder="search..." value={searchValue} onChange={(e)=>{
-                setSearchValue(e.target.value.trim());
+                setSearchValue(e.target.value);
                 // if(e.target.value.trim().length >=3){
                 //   setSearchURL(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=${e.target.value.trim()}&page=${SearchPage}`);
                 //   setSearchPage(1);
                 //   document.querySelector(".appHeader>input").focus();
                 // }
-                if(e.target.value.trim() ===""){
+                if(e.target.value ===""){
                   setSearchWindow(false);
                 }
               }} onKeyPress={(e)=>{
                 console.log(e);
                 if(e.key === "Enter" && searchValue !==""){
-                  setSearchURL(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=${searchValue}&page=${SearchPage}`);
+                  setSearchURL(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=${searchValue.trim()}&page=${SearchPage}`);
                   setSearchPage(1);
                 }
               }} />
@@ -246,7 +246,7 @@ function App(){
             
             {searchWindow && <div className="lower">
               <div className="searchSection">
-                {searchData.total_results ? <h2>Search result for "{searchValue}"</h2> : <h2>No result found for "{searchValue}"</h2>}
+                {searchData.total_results ? <h2>Search result for "{searchValue.trim()}"</h2> : <h2>No result found for "{searchValue.trim()}"</h2>}
                 {searchData && <Sections sectionName="searchSection" cardId="card" sectionData={searchData}/> }
                 <div className="sectionWrap">
                   {!similarData.total_results > 0 ? null :(<>

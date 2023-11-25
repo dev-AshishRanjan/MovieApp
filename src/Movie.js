@@ -35,7 +35,7 @@ const Movie = () => {
             setLoading(false);
             const big=res_data.original_title.split(" ");
             setBigText(`${big[0]}`);
-            toast.info(`${id} loaded`);
+            toast.info(`${res_data.original_title} loaded`);
         })
         setLoading(true);
         fetch(castURL).then(res => res.json()).then((res_data) => {
