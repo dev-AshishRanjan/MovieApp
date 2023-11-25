@@ -372,6 +372,15 @@
   .puejv{
     display: none;
   }
+  .appHeader{
+    p{
+      font-size:1rem !important;
+      // margin-left: 0.5rem;
+    }
+    input{
+      width: 50vw !important;
+    }
+  }
 }
 
 @media (min-width: 650px) {
