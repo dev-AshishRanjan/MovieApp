@@ -8,6 +8,7 @@ import { BsFillArrowDownCircleFill,BsFillArrowUpCircleFill } from "react-icons/b
 import { useSpeechContext } from '@speechly/react-client';
 import { PushToTalkButton,PushToTalkButtonContainer } from '@speechly/react-ui';
 import { SiThemoviedatabase } from "react-icons/si";
+import { FaStar } from "react-icons/fa";
 // import {useNavigate} from "react-router-dom";
 
 const MovieContext=React.createContext();
@@ -310,6 +311,8 @@ const Sections=({sectionName,cardId,sectionData})=>{
               <motion.div className={cardId} key={element.id} onClick={()=>handleSelect(element)}>
                 <motion.img className="image" src={`${imgpath}${element.poster_path}`}/>
                 <motion.div className="data">
+                  <motion.p className="rd">{element.release_date}</motion.p>
+                  <motion.p className="vote"><FaStar /> &nbsp; {(element.vote_average).toFixed(1)}</motion.p>
                   <motion.h4 className="title">{element.title}</motion.h4>
                 </motion.div>
               </motion.div>
