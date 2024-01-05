@@ -37,13 +37,12 @@ const Movie = () => {
             setBigText(`${big[0]}`);
             toast.info(`${res_data.original_title} loaded`);
         })
-        setLoading(true);
         fetch(castURL).then(res => res.json()).then((res_data) => {
             console.log(res_data);
             setCastData(res_data);
             setLoading(false);
         })
-    },[URL]);
+    },[]);
 
     useEffect(() =>{
         if(!loading && theme && black){
@@ -57,7 +56,7 @@ const Movie = () => {
         }else if(!loading && !theme && !black){
             document.querySelector(".theme2>.Moviebg2").style.filter =`grayscale(0%)`;
         }
-    },[black])
+    },[black,loading,theme])
     
     useEffect(() =>{
         if(!loading && data.backdrop_path && theme){
@@ -71,7 +70,7 @@ const Movie = () => {
         }else if(!loading && !data.backdrop_path && !theme){
             document.querySelector(".theme2>.Moviebg2").style.background =`linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(https://picsum.photos/1000) no-repeat center center / cover`;
         }
-    },[theme,loading]);
+    },[theme,loading,data]);
 
     ChartJs.register(...registerables );
     const options = {
